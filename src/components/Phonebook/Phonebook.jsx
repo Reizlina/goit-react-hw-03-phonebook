@@ -19,6 +19,20 @@ class Phonebook extends Component {
     filter: '',
   };
 
+  // componentDidMount() {
+  //   const id = Number(localStorage.getItem('contacts-index'));
+  //   console.log(id);
+  //   if (id !== 0) {
+  //     this.setState({ id });
+  //   }
+  // }
+
+  componentDidUpdate() {
+    const { contacts } = this.state;
+    console.log(contacts);
+    localStorage.setItem('contact-item', contacts);
+  }
+
   addContact = ({ name, number }) => {
     const { contacts } = this.state;
     const el = contacts.some(
